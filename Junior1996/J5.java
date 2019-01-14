@@ -38,14 +38,10 @@ public class J5 {
     static int findMaxDist(int[] X, int[] Y, int maxVal){
         int maxDistance = 0;
 
-        for (int i = 0; i <= maxVal; i++) { // The <= is needed to ensure that the maximum value is also calculated
-            for (int j = 0; j < X.length; j++) {
-                if(X[j] == i){
-                    for (int k = 0; k < Y.length; k++) {
-                        if(Y[k] == X[j] && (Math.abs(k - j) > maxDistance)){
-                            maxDistance = Math.abs(k - j);
-                        }
-                    }
+        for (int j = 0; j < X.length; j++) {
+            for (int k = j; k < Y.length; k++) {
+                if(Y[k] == X[j] && (Math.abs(k - j) > maxDistance)){
+                    maxDistance = Math.abs(k - j);
                 }
             }
         }
